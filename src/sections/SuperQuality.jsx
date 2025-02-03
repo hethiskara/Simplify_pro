@@ -1,4 +1,4 @@
-import { shoe8 } from "../assets/images";
+import shoe8 from "../assets/images/shoe8.png";
 import Button from "../components/Button";
 
 const SuperQuality = () => {
@@ -16,20 +16,15 @@ function Info() {
   return (
     <div className="flex flex-1 flex-col">
       <h2 className="font-palanquin text-4xl capitalize font-bold lg:max-w-lg">
-        We Provide You
-        <span className="text-coral-red"> Super </span>
-        <span className="text-coral-red"> Quality </span> Shoes
+      We started Simplify Pro to  
+        <span className="text-coral-red"> fix the issues  </span>
+        <span className="text-coral-red"> we faced while </span> job searching.
       </h2>
       <p className="mt-4 lg:max-w-lg info-text">
-        Ensuring premium comfort and style, our meticulously crafted footwear is
-        designed to elevate your experience, providing you with unmatched
-        quality, innovation, and a touch of elegance.
-      </p>
-      <p className="info-text mt-6 lg:max-w-lg">
-        Our dedication to detail and excellence ensures your satisfaction
+      Finding a job sucks. In college, we each applied to over 100 positions every recruiting cycle, spending hours finding roles that fit our interests, manually entering the same information on every application, and trying to stay organized using spreadsheets. After experimenting with virtually every job board and recruiting website out there, one thing became clear: there was no good solution.
       </p>
       <div className="mt-11">
-        <Button label="View details" />
+        <Button label="Sign-Up Now" />
       </div>
     </div>
   );
