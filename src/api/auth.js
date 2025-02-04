@@ -11,8 +11,6 @@ export const loginUser = async (email, password) => {
         headers: {
           "Accept": "*/*",
           "Content-Type": "application/json",
-          // If the API needs an auth token for the request, uncomment and update the token value
-          // "Authorization": `Bearer ${YOUR_TOKEN}`
         },
         withCredentials: true, // You might set this to true if cookies are needed
       }
@@ -35,9 +33,21 @@ export const loginUser = async (email, password) => {
 // User signup function
 export const registerUser = async (name, email, password) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/signup`, { name, email, password });
+    const response = await axios.post(
+      `${API_BASE_URL}/signup`,
+      { name, email, password }
+    );
+
+    // Handle success: Show a success message to the user
+    console.log("Signup successful:", response.data);
+    alert("Signup successful! You can now log in.");
+
     return response.data; // Returns the API response
   } catch (error) {
+    // Handle error: Show an error message to the user
+    console.error("Signup error:", error.response?.data || error.message);
+    alert(error.response?.data?.message || "Signup failed. Please try again.");
     throw new Error(error.response?.data?.message || "Signup failed");
   }
 };
+
