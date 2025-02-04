@@ -42,11 +42,13 @@ function InfoText() {
     <>
       <p className="text-xl text-coral-red font-montserrat">Simplified Job Application</p>
       <h1 className="mt-10 font-palanquin text-8xl max-sm:text-[72px] max-sm:leading-[82px] font-bold">
-        <span className="xl:bg-white xl:whitespace-nowrap relative pr-10 z-10">
-          Applications are
+      <span className="xl:bg-white xl:whitespace-nowrap relative pr-10 z-[5]">
+          Automating
         </span>
         <br />
-        <span className="text-coral-red mt-3 inline-block "></span>Automated
+        <span className="text-coral-red relative top-3 inline-block">
+          Applications
+        </span>
       </h1>
       <p className="font-montserrat text-slate-gray text-lg leading-8 mt-6 mb-14 sm:max-w-sm">
         Get started with Simplify Pro.
@@ -57,14 +59,14 @@ function InfoText() {
 
 function ImagesSection() {
   return (
-    <div className="relative flex flex-1 justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-hero bg-cover bg-center">
-      <img
-        src={bigShoe1}
-        alt="shoe collection"
-        width={610}
-        height={500}
-        className="object-contain relative z-10"
-      />
+    <div className="relative flex flex-1 justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-hero bg-cover bg-center z-[5]">
+        <img
+          src={bigShoe1}
+          alt="shoe collection"
+          width={610}
+          height={500}
+          className="object-contain relative z-[5]"
+        />
     </div>
   );
 }

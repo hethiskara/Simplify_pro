@@ -7,7 +7,7 @@ const Footer = () => {
         Simplify <span className="text-coral-red">Pro</span>
       </p>
       <p className="mt-4 text-base leading-7 font-montserrat text-white-400">
-        We're here for every step of your search.
+        We're here for every step of your application.
       </p>
       <div className="flex items-center mt-6">
         <img
