@@ -7,6 +7,7 @@ import AuthModal from "./AuthModal"; // Import AuthModal
 const Nav = () => {
   const { user, logout } = useContext(AuthContext); // Get user & logout function
   const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal
+  const [isSignup, setIsSignup] = useState(false); // Track signup/login mode
   const navigate = useNavigate(); // Initialize navigate
 
   const handleLogout = () => {
@@ -49,7 +50,10 @@ const Nav = () => {
             </button>
           ) : (
             <button
-              onClick={() => setIsModalOpen(true)}
+              onClick={() => {
+                setIsModalOpen(true);
+                setIsSignup(false); // Default to login modal
+              }}
               className="bg-coral-red text-white px-4 py-2 rounded"
             >
               Login
@@ -60,7 +64,11 @@ const Nav = () => {
 
       {/* Render the AuthModal when isModalOpen is true */}
       {isModalOpen && (
-        <AuthModal setIsModalOpen={setIsModalOpen} isSignup={false} />
+        <AuthModal
+          setIsModalOpen={setIsModalOpen}
+          isSignup={isSignup}
+          setIsSignup={setIsSignup} // Pass function to toggle signup/login
+        />
       )}
     </header>
   );
