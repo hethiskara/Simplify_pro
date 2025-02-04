@@ -21,7 +21,7 @@ const AuthModal = ({ setIsModalOpen, isSignup, setIsSignup }) => {
         await login(email, password);
       }
       setIsModalOpen(false); // Close modal on success
-      navigate("/home"); // Redirect to dummy homepage on success
+      navigate("/Simplify_pro/home", { replace: true }); // Redirect to /Simplify_pro/home after login
     } catch (error) {
       setErrorMessage(error.message || "Something went wrong. Please try again.");
     }

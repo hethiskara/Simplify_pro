@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { AuthContext } from "../context/AuthContext"; // Import AuthContext
 import { navLinks } from "../constants";
 import AuthModal from "./AuthModal"; // Import AuthModal
@@ -6,6 +7,12 @@ import AuthModal from "./AuthModal"; // Import AuthModal
 const Nav = () => {
   const { user, logout } = useContext(AuthContext); // Get user & logout function
   const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal
+  const navigate = useNavigate(); // Initialize navigate
+
+  const handleLogout = () => {
+    logout(); // Clear user session
+    navigate("/Simplify_pro/"); // Redirect to home after logout
+  };
 
   return (
     <header className="padding-x py-6 w-full z-10 absolute top-0 left-0 bg-white shadow-md">
@@ -31,11 +38,11 @@ const Nav = () => {
           ))}
         </ul>
 
-        {/* Login/Logout Button (Aligned Properly) */}
+        {/* Login/Logout Button */}
         <div className="flex items-center">
           {user ? (
             <button
-              onClick={logout}
+              onClick={handleLogout} // Call handleLogout when clicked
               className="bg-red-500 text-white px-4 py-2 rounded"
             >
               Logout

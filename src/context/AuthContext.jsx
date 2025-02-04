@@ -1,4 +1,6 @@
-import { createContext, useState } from "react";
+// src/context/AuthContext.jsx
+
+import { createContext, useState, useContext } from "react";
 import { loginUser, registerUser } from "../api/auth";
 
 export const AuthContext = createContext();
@@ -28,9 +30,19 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const logout = () => {
+    setUser(null); // Clear the user data
+    localStorage.removeItem("token"); // Remove token from local storage
+  };
+
   return (
-    <AuthContext.Provider value={{ user, login, signup }}>
+    <AuthContext.Provider value={{ user, login, signup, logout }}>
       {children}
     </AuthContext.Provider>
   );
+};
+
+// Define and export the `useAuth` hook to access the context
+export const useAuth = () => {
+  return useContext(AuthContext); // Access the AuthContext
 };
