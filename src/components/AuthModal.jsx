@@ -21,11 +21,14 @@ const AuthModal = ({ setIsModalOpen, isSignup, setIsSignup }) => {
         await login(email, password);
       }
       setIsModalOpen(false); // Close modal on success
+      
+      // Ensure navigation happens only after the context state is updated
       navigate("/Simplify_pro/home", { replace: true }); // Redirect to /Simplify_pro/home after login
     } catch (error) {
       setErrorMessage(error.message || "Something went wrong. Please try again.");
     }
   };
+  
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[10000]">

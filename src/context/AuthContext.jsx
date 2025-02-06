@@ -29,6 +29,7 @@ export const AuthProvider = ({ children }) => {
       throw new Error(error.message);
     }
   };
+  
 
   const logout = () => {
     setUser(null); // Clear the user data

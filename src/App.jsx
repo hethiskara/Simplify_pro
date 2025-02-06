@@ -40,7 +40,7 @@ const RouterWrapper = () => {
     <main className="relative">
       <Nav isLoggedIn={user !== null} handleLogout={handleLogout} />
       
-      {/* Render the sections if the user is not logged in */}
+      {/* Render sections only if user is not logged in */}
       {!user && (
         <>
           <section className="xl:padding-l wide:padding-r padding-b">
@@ -58,15 +58,18 @@ const RouterWrapper = () => {
         </>
       )}
       
-      {/* Routes */}
-      <Routes>
-        <Route path="/Simplify_pro/home" element={<HomePage />} />
-      </Routes>
+      {/* Conditional rendering for home page after login */}
+      {user && (
+        <Routes>
+          <Route path="/Simplify_pro/home" element={<HomePage />} />
+        </Routes>
+      )}
 
       {/* Modal for login/signup */}
       {isModalOpen && <AuthModal setIsModalOpen={setIsModalOpen} isSignup={isSignup} setIsSignup={setIsSignup} />}
     </main>
   );
 };
+
 
 export default App;
