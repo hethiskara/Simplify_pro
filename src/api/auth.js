@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://simplifypro.palsbase.online";
+const API_BASE_URL = "https://simplifypro.palsbase.online";
 
 
 export const loginUser = async (email, password) => {
