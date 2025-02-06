@@ -1,18 +1,18 @@
 import axios from "axios";
 
-const API_BASE_URL = "/auth";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://simplifypro.palsbase.online";
+
 
 export const loginUser = async (email, password) => {
   try {
     const response = await axios.post(
-      `${API_BASE_URL}/login`,
+      `${API_BASE_URL}/auth/login`,
       { email, password },
       {
         headers: {
           "Accept": "*/*",
           "Content-Type": "application/json",
         },
-        withCredentials: true, // You might set this to true if cookies are needed
       }
     );
 
@@ -34,7 +34,7 @@ export const loginUser = async (email, password) => {
 export const registerUser = async (name, email, password) => {
   try {
     const response = await axios.post(
-      `${API_BASE_URL}/signup`,
+      `${API_BASE_URL}/auth/signup`,
       { name, email, password }
     );
 

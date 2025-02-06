@@ -11,7 +11,7 @@ import HomePage from "../src/home";
 
 const App = () => {
   return (
-    <AuthProvider> {/* Wrap everything in the AuthProvider */}
+    <AuthProvider> 
       <Router>
         <RouterWrapper />
       </Router>
