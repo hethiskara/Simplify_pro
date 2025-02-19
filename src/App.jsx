@@ -20,7 +20,7 @@ const App = () => {
 };
 
 const RouterWrapper = () => {
-  const { user, login, signup, logout } = useAuth();
+  const { user, logout } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSignup, setIsSignup] = useState(false); // Toggle between login/signup
   const navigate = useNavigate();
